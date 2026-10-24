@@ -1,0 +1,46 @@
+name: Facilities request
+description: Report a facilities issue or request something for the office
+title: "[Facilities]: "
+labels: ["facilities"]
+assignees: ["heavygee"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for flagging this! Please fill out the sections below so we can route it to the right person.
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Which room, floor, or area?
+      placeholder: "e.g. 2nd floor kitchenette"
+    validations:
+      required: true
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency
+      options:
+        - Low — whenever convenient
+        - Medium — this week
+        - High — blocking someone today
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What needs doing?
+      description: Describe the issue or request
+      placeholder: "The carpet tiles by the lobby door are curling up..."
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Before you submit
+      options:
+        - label: I checked this hasn't already been reported
+          required: true
+        - label: This is safe to leave until a technician is free
+          required: false
